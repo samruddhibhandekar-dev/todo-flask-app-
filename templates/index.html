@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List App</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        input { padding: 10px; width: 250px; }
+        button { padding: 10px 15px; background: #4CAF50; color: white; border: none; }
+        ul { list-style: none; }
+        li { margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>📝 My To-Do List</h1>
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter new task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task[1] }} <a href="/delete/{{ task[0] }}" style="color:red;">X</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
